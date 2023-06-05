@@ -1,21 +1,18 @@
-from abc import ABC, abstractmethod
+from typing import Protocol
 from iot.message import MessageType
 
-class Device(ABC):
+class Device(Protocol):
     """
     Abstarct base class that defines the interface for devices
     """
-    @abstractmethod
     def connect(self) -> None:
-        """connect abstract base class"""
+        """connect protocol base method"""
         pass
 
-    @abstractmethod
     def disconnect(self) -> None:
-        """disconnect abstract base class"""
+        """disconnect protocol base method"""
         pass
 
-    @abstractmethod
     def send_message(self, message_type: MessageType, data:str) -> None:
         """
         send message abstract method 
@@ -26,7 +23,6 @@ class Device(ABC):
         """
         pass
 
-    @abstractmethod
     def status_update(self) -> str:
         """
         status update abstract method
@@ -35,4 +31,3 @@ class Device(ABC):
             str: status message
         """
         pass
-    
