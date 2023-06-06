@@ -1,6 +1,22 @@
-from protocols.device import Device
+# from protocols.device import Device
+from typing import Protocol
 
-def collect_diagnostics(device: Device) -> None:
+class DiagnosticSource(Protocol):
+    """
+    Abstarct base class that defines the interface for devices
+    """
+
+    def status_update(self) -> str:
+        """
+        status update abstract method
+
+        Returns:
+            str: status message
+        """
+        ...
+
+
+def collect_diagnostics(source: DiagnosticSource) -> None:
     print("Connecting to diagnostics server .")
-    status = device.status_update()
+    status = source.status_update()
     print(f"sending status update [{status}] to server")
