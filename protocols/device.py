@@ -1,5 +1,5 @@
 from typing import Protocol
-from iot.message import MessageType
+from protocols.message import MessageType
 
 class Device(Protocol):
     """
@@ -7,11 +7,11 @@ class Device(Protocol):
     """
     def connect(self) -> None:
         """connect protocol base method"""
-        pass
+        ...
 
     def disconnect(self) -> None:
         """disconnect protocol base method"""
-        pass
+        ...
 
     def send_message(self, message_type: MessageType, data:str) -> None:
         """
@@ -21,7 +21,7 @@ class Device(Protocol):
             message_type (MessageType): Message Type Enum e.g. SWITCH_ON, SWITCH_OFF
             data (str): message data 
         """
-        pass
+        ...
 
     def status_update(self) -> str:
         """
@@ -30,4 +30,4 @@ class Device(Protocol):
         Returns:
             str: status message
         """
-        pass
+        ...
